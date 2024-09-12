@@ -1,0 +1,57 @@
+﻿@model RegistroCasino.Models.Plataforma
+
+@{
+    ViewData["Title"] = "Editar Plataforma";
+}
+
+<br />
+<br />
+<h3 class="text-center">Editar Plataforma</h3>
+<form method="POST" asp-action="Edit">
+    <div class="row px-2 offset-1 border">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="col-10 offset-1 mt-4">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="URL"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="URL" class="form-control" placeholder="Ingresa la URL de la plataforma" />
+                    <span asp-validation-for="URL" class="text-danger"></span>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Descripcion"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Descripcion" class="form-control" placeholder="Ingresa la Descripción" />
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="form-group-row">
+                <div class="col-8">
+                    <partial name="_VistaEditarVolver" />
+                </div>
+            </div>
+
+            <br />
+
+        </div>
+
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
