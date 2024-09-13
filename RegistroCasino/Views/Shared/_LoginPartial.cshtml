@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using RegistroCasino.Utilities
-@inject SignInManager<Cajeros> SignInManager
-@inject UserManager<Cajeros> UserManager
+@inject SignInManager<CajeroUser> SignInManager
+@inject UserManager<CajeroUser> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))

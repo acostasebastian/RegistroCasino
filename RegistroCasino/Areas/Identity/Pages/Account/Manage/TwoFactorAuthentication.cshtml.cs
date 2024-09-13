@@ -14,12 +14,12 @@ namespace RegistroCasino.Areas.Identity.Pages.Account.Manage
 {
     public class TwoFactorAuthenticationModel : PageModel
     {
-        private readonly UserManager<Cajeros> _userManager;
-        private readonly SignInManager<Cajeros> _signInManager;
+        private readonly UserManager<CajeroUser> _userManager;
+        private readonly SignInManager<CajeroUser> _signInManager;
         private readonly ILogger<TwoFactorAuthenticationModel> _logger;
 
         public TwoFactorAuthenticationModel(
-            UserManager<Cajeros> userManager, SignInManager<Cajeros> signInManager, ILogger<TwoFactorAuthenticationModel> logger)
+            UserManager<CajeroUser> userManager, SignInManager<CajeroUser> signInManager, ILogger<TwoFactorAuthenticationModel> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;

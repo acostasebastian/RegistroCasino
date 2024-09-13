@@ -12,6 +12,6 @@ namespace RegistroCasino.Data
         }
 
         public DbSet<Plataforma> Plataforma { get; set; }
-        public DbSet<Cajeros> Cajero { get; set; }
+        public DbSet<CajeroUser> Cajero { get; set; }
     }
 }

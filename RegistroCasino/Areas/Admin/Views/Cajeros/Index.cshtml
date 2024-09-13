@@ -76,8 +76,12 @@
             <h2 class="text-primary">Lista de Cajeros</h2>
         </div>
         <div class="col-4 text-right">
-            <a asp-action="Create" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Crear Nueva Cajero</a>
+            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Crear Nueva Cajero</a>
         </div>
+
+        @* <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-info">
+            <i class="fas fa-plus"></i> &nbsp; Registra un nuevo cajero
+        </a> *@
     </div>
 
     <br />

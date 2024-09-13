@@ -24,17 +24,17 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ExternalLoginModel : PageModel
     {
-        private readonly SignInManager<Cajeros> _signInManager;
-        private readonly UserManager<Cajeros> _userManager;
-        private readonly IUserStore<Cajeros> _userStore;
-        private readonly IUserEmailStore<Cajeros> _emailStore;
+        private readonly SignInManager<CajeroUser> _signInManager;
+        private readonly UserManager<CajeroUser> _userManager;
+        private readonly IUserStore<CajeroUser> _userStore;
+        private readonly IUserEmailStore<CajeroUser> _emailStore;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
 
         public ExternalLoginModel(
-            SignInManager<Cajeros> signInManager,
-            UserManager<Cajeros> userManager,
-            IUserStore<Cajeros> userStore,
+            SignInManager<CajeroUser> signInManager,
+            UserManager<CajeroUser> userManager,
+            IUserStore<CajeroUser> userStore,
             ILogger<ExternalLoginModel> logger,
             IEmailSender emailSender)
         {
@@ -198,27 +198,27 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private Cajeros CreateUser()
+        private CajeroUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<Cajeros>();
+                return Activator.CreateInstance<CajeroUser>();
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(Cajeros)}'. " +
-                    $"Ensure that '{nameof(Cajeros)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(CajeroUser)}'. " +
+                    $"Ensure that '{nameof(CajeroUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the external login page in /Areas/Identity/Pages/Account/ExternalLogin.cshtml");
             }
         }
 
-        private IUserEmailStore<Cajeros> GetEmailStore()
+        private IUserEmailStore<CajeroUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<Cajeros>)_userStore;
+            return (IUserEmailStore<CajeroUser>)_userStore;
         }
     }
 }

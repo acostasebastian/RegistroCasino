@@ -17,14 +17,14 @@ namespace RegistroCasino.Areas.Identity.Pages.Account.Manage
 {
     public class ExternalLoginsModel : PageModel
     {
-        private readonly UserManager<Cajeros> _userManager;
-        private readonly SignInManager<Cajeros> _signInManager;
-        private readonly IUserStore<Cajeros> _userStore;
+        private readonly UserManager<CajeroUser> _userManager;
+        private readonly SignInManager<CajeroUser> _signInManager;
+        private readonly IUserStore<CajeroUser> _userStore;
 
         public ExternalLoginsModel(
-            UserManager<Cajeros> userManager,
-            SignInManager<Cajeros> signInManager,
-            IUserStore<Cajeros> userStore)
+            UserManager<CajeroUser> userManager,
+            SignInManager<CajeroUser> signInManager,
+            IUserStore<CajeroUser> userStore)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -70,7 +70,7 @@ namespace RegistroCasino.Areas.Identity.Pages.Account.Manage
                 .ToList();
 
             string passwordHash = null;
-            if (_userStore is IUserPasswordStore<Cajeros> userPasswordStore)
+            if (_userStore is IUserPasswordStore<CajeroUser> userPasswordStore)
             {
                 passwordHash = await userPasswordStore.GetPasswordHashAsync(user, HttpContext.RequestAborted);
             }

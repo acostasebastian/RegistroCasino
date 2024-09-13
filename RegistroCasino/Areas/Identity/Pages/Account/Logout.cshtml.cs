@@ -15,10 +15,10 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
 {
     public class LogoutModel : PageModel
     {
-        private readonly SignInManager<Cajeros> _signInManager;
+        private readonly SignInManager<CajeroUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
 
-        public LogoutModel(SignInManager<Cajeros> signInManager, ILogger<LogoutModel> logger)
+        public LogoutModel(SignInManager<CajeroUser> signInManager, ILogger<LogoutModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;

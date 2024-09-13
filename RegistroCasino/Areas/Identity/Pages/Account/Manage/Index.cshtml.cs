@@ -15,12 +15,12 @@ namespace RegistroCasino.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {
-        private readonly UserManager<Cajeros> _userManager;
-        private readonly SignInManager<Cajeros> _signInManager;
+        private readonly UserManager<CajeroUser> _userManager;
+        private readonly SignInManager<CajeroUser> _signInManager;
 
         public IndexModel(
-            UserManager<Cajeros> userManager,
-            SignInManager<Cajeros> signInManager)
+            UserManager<CajeroUser> userManager,
+            SignInManager<CajeroUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -62,7 +62,7 @@ namespace RegistroCasino.Areas.Identity.Pages.Account.Manage
             public string PhoneNumber { get; set; }
         }
 
-        private async Task LoadAsync(Cajeros user)
+        private async Task LoadAsync(CajeroUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);

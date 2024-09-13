@@ -15,13 +15,13 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
 {
     public class LoginWithRecoveryCodeModel : PageModel
     {
-        private readonly SignInManager<Cajeros> _signInManager;
-        private readonly UserManager<Cajeros> _userManager;
+        private readonly SignInManager<CajeroUser> _signInManager;
+        private readonly UserManager<CajeroUser> _userManager;
         private readonly ILogger<LoginWithRecoveryCodeModel> _logger;
 
         public LoginWithRecoveryCodeModel(
-            SignInManager<Cajeros> signInManager,
-            UserManager<Cajeros> userManager,
+            SignInManager<CajeroUser> signInManager,
+            UserManager<CajeroUser> userManager,
             ILogger<LoginWithRecoveryCodeModel> logger)
         {
             _signInManager = signInManager;

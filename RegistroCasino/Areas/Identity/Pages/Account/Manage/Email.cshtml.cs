@@ -18,13 +18,13 @@ namespace RegistroCasino.Areas.Identity.Pages.Account.Manage
 {
     public class EmailModel : PageModel
     {
-        private readonly UserManager<Cajeros> _userManager;
-        private readonly SignInManager<Cajeros> _signInManager;
+        private readonly UserManager<CajeroUser> _userManager;
+        private readonly SignInManager<CajeroUser> _signInManager;
         private readonly IEmailSender _emailSender;
 
         public EmailModel(
-            UserManager<Cajeros> userManager,
-            SignInManager<Cajeros> signInManager,
+            UserManager<CajeroUser> userManager,
+            SignInManager<CajeroUser> signInManager,
             IEmailSender emailSender)
         {
             _userManager = userManager;
@@ -74,7 +74,7 @@ namespace RegistroCasino.Areas.Identity.Pages.Account.Manage
             public string NewEmail { get; set; }
         }
 
-        private async Task LoadAsync(Cajeros user)
+        private async Task LoadAsync(CajeroUser user)
         {
             var email = await _userManager.GetEmailAsync(user);
             Email = email;

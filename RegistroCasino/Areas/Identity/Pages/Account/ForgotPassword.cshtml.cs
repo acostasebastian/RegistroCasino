@@ -19,10 +19,10 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
 {
     public class ForgotPasswordModel : PageModel
     {
-        private readonly UserManager<Cajeros> _userManager;
+        private readonly UserManager<CajeroUser> _userManager;
         private readonly IEmailSender _emailSender;
 
-        public ForgotPasswordModel(UserManager<Cajeros> userManager, IEmailSender emailSender)
+        public ForgotPasswordModel(UserManager<CajeroUser> userManager, IEmailSender emailSender)
         {
             _userManager = userManager;
             _emailSender = emailSender;

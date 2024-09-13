@@ -15,13 +15,13 @@ namespace RegistroCasino.Areas.Identity.Pages.Account.Manage
 {
     public class ChangePasswordModel : PageModel
     {
-        private readonly UserManager<Cajeros> _userManager;
-        private readonly SignInManager<Cajeros> _signInManager;
+        private readonly UserManager<CajeroUser> _userManager;
+        private readonly SignInManager<CajeroUser> _signInManager;
         private readonly ILogger<ChangePasswordModel> _logger;
 
         public ChangePasswordModel(
-            UserManager<Cajeros> userManager,
-            SignInManager<Cajeros> signInManager,
+            UserManager<CajeroUser> userManager,
+            SignInManager<CajeroUser> signInManager,
             ILogger<ChangePasswordModel> logger)
         {
             _userManager = userManager;

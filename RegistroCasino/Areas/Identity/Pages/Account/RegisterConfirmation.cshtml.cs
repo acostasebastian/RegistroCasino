@@ -18,10 +18,10 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterConfirmationModel : PageModel
     {
-        private readonly UserManager<Cajeros> _userManager;
+        private readonly UserManager<CajeroUser> _userManager;
         private readonly IEmailSender _sender;
 
-        public RegisterConfirmationModel(UserManager<Cajeros> userManager, IEmailSender sender)
+        public RegisterConfirmationModel(UserManager<CajeroUser> userManager, IEmailSender sender)
         {
             _userManager = userManager;
             _sender = sender;

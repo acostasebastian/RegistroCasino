@@ -17,9 +17,9 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
 {
     public class ConfirmEmailModel : PageModel
     {
-        private readonly UserManager<Cajeros> _userManager;
+        private readonly UserManager<CajeroUser> _userManager;
 
-        public ConfirmEmailModel(UserManager<Cajeros> userManager)
+        public ConfirmEmailModel(UserManager<CajeroUser> userManager)
         {
             _userManager = userManager;
         }

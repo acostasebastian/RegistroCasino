@@ -17,9 +17,9 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
 {
     public class ResetPasswordModel : PageModel
     {
-        private readonly UserManager<Cajeros> _userManager;
+        private readonly UserManager<CajeroUser> _userManager;
 
-        public ResetPasswordModel(UserManager<Cajeros> userManager)
+        public ResetPasswordModel(UserManager<CajeroUser> userManager)
         {
             _userManager = userManager;
         }

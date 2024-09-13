@@ -1,5 +1,5 @@
 ﻿@using RegistroCasino.Models
-@inject SignInManager<Cajeros> SignInManager
+@inject SignInManager<CajeroUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

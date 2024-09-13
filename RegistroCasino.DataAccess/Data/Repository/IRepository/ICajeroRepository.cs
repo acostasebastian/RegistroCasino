@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace RegistroCasino.DataAccess.Data.Repository.IRepository
 {
-    public interface ICajeroRepository : IRepository<Cajeros>
+    public interface ICajeroRepository : IRepository<CajeroUser>
     {
 
-        public Cajeros GetString(string id);
+        public CajeroUser GetString(string id);
 
-        void BloquearCajero(Cajeros cajeroDesdeBd);
-        void DesloquearCajero(Cajeros cajeroDesdeBd);
-   
+        void BloquearCajero(CajeroUser cajeroDesdeBd);
+        void DesloquearCajero(CajeroUser cajeroDesdeBd);
+
+        void Update(CajeroUser cajero);
+
     }
 }

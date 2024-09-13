@@ -25,6 +25,11 @@ function cargarDataTable() {
 
                     //hago todo en un mismo metodo, para un solo boton
                     return `<div class="text-center">
+                                <a href="/Admin/Cajeros/Edit/${data}" class="btn btn-success text-white" style="cursor:pointer; width:140px;">
+                                <i class="far fa-edit"></i> Editar
+                                </a>
+                                &nbsp;
+
 
                                 <a onclick=AccionBloqueo("/Admin/Cajeros/BloquearDesloquearCajero/${data}") class="btn btn-info text-white" style="cursor:pointer; width:140px;">
                                 <i class="fa-solid fa-user-lock"></i> Ambas Acciones

@@ -11,7 +11,7 @@ using System.Xml.Linq;
 namespace RegistroCasino.Models
 {
     [Index("DNI", IsUnique = true, Name = "IX_Cajeros_DNI")]
-    public class Cajeros : IdentityUser
+    public class CajeroUser : IdentityUser
     {
         [Required(ErrorMessage = "El Nombre es obligatorio")]
         public string Nombre { get; set; }

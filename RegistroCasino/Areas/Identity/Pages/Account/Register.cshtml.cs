@@ -28,18 +28,18 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
     [Authorize(Roles = "Administrador,Secretaria")]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<Cajeros> _signInManager;
-        private readonly UserManager<Cajeros> _userManager;
-        private readonly IUserStore<Cajeros> _userStore;
-        private readonly IUserEmailStore<Cajeros> _emailStore;
+        private readonly SignInManager<CajeroUser> _signInManager;
+        private readonly UserManager<CajeroUser> _userManager;
+        private readonly IUserStore<CajeroUser> _userStore;
+        private readonly IUserEmailStore<CajeroUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
 
         public RegisterModel(
-            UserManager<Cajeros> userManager,
-            IUserStore<Cajeros> userStore,
-            SignInManager<Cajeros> signInManager,
+            UserManager<CajeroUser> userManager,
+            IUserStore<CajeroUser> userStore,
+            SignInManager<CajeroUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
             RoleManager<IdentityRole> roleManager)
@@ -93,7 +93,7 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
             /// </summary>
             [Required(ErrorMessage = "La Contraseña es obligatoria")]
             [StringLength(100, ErrorMessage = "La {0} debe tener al menos {2} carácteres y como máximo {1} carácteres.", MinimumLength = 6)]
-            [DataType(DataType.Password, ErrorMessage = "aaaaa")]
+            [DataType(DataType.Password)]
             [Display(Name = "Contraseña")]
             public string Password { get; set; }
 
@@ -294,27 +294,27 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private Cajeros CreateUser()
+        private CajeroUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<Cajeros>();
+                return Activator.CreateInstance<CajeroUser>();
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(Cajeros)}'. " +
-                    $"Ensure that '{nameof(Cajeros)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(CajeroUser)}'. " +
+                    $"Ensure that '{nameof(CajeroUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
             }
         }
 
-        private IUserEmailStore<Cajeros> GetEmailStore()
+        private IUserEmailStore<CajeroUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<Cajeros>)_userStore;
+            return (IUserEmailStore<CajeroUser>)_userStore;
         }
     }
 }

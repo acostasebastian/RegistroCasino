@@ -20,10 +20,10 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
-        private readonly SignInManager<Cajeros> _signInManager;
+        private readonly SignInManager<CajeroUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<Cajeros> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<CajeroUser> signInManager, ILogger<LoginModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;

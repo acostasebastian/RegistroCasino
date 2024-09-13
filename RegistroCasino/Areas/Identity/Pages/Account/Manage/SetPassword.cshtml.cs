@@ -14,12 +14,12 @@ namespace RegistroCasino.Areas.Identity.Pages.Account.Manage
 {
     public class SetPasswordModel : PageModel
     {
-        private readonly UserManager<Cajeros> _userManager;
-        private readonly SignInManager<Cajeros> _signInManager;
+        private readonly UserManager<CajeroUser> _userManager;
+        private readonly SignInManager<CajeroUser> _signInManager;
 
         public SetPasswordModel(
-            UserManager<Cajeros> userManager,
-            SignInManager<Cajeros> signInManager)
+            UserManager<CajeroUser> userManager,
+            SignInManager<CajeroUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

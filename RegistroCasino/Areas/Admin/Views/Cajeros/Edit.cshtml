@@ -1,0 +1,122 @@
+﻿@* @using RegistroCasino.Areas.Identity.Pages.Account *@
+@using RegistroCasino.Utilities
+@model RegistroCasino.Models.CajeroUser
+
+@* @model RegisterModel *@
+
+@{
+    ViewData["Title"] = "Editar Cajero";
+}
+
+<br />
+<br />
+<h3 class="text-center">Editar Cajero</h3>
+<form method="POST" asp-action="Edit">
+    <div class="row px-2 offset-1 border">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="col-10 offset-1 mt-4">        
+
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control" placeholder="Please choose your username." disabled />
+                <label asp-for="Email" class="form-label"></label>
+            </div>
+
+            <!--Inicio Campos agregados-->
+            <div class="form-floating mb-3">
+                <input asp-for="Nombre" class="form-control" autocomplete="nombre" aria-required="true" placeholder="Ingrese el Nombre" />
+                <label asp-for="Nombre">Nombre</label>
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Apellido" class="form-control" autocomplete="apellido" aria-required="true" placeholder="Ingrese el Apellido" />
+                <label asp-for="Apellido">Apellido</label>
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="DNI" class="form-control" autocomplete="dni" aria-required="true" placeholder="Ingrese el DNI" />
+                <label asp-for="DNI">DNI</label>
+                <span asp-validation-for="DNI" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="PorcentajeComision" class="form-control" autocomplete="porcentajecomision" aria-required="true" placeholder="Ingrese el Porcentaje de Comisión" value="50" />
+                <label asp-for="PorcentajeComision">Porcentaje de Comisión</label>
+                <span asp-validation-for="PorcentajeComision" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-floating mb-3">
+                <input asp-for="FichasCargar" class="form-control" autocomplete="fichasCargar" aria-required="true" placeholder="Ingrese las Fichas a Cargar" />
+                <label asp-for="FichasCargar">Fichas que puede cargar</label>
+                <span asp-validation-for="FichasCargar" class="text-danger"></span>
+            </div>
+
+            <!--Fin Campos agregados-->
+
+
+
+            <div class="form-floating mb-3">
+                <input asp-for="PhoneNumber" class="form-control" autocomplete="phoneNumber" aria-required="true" placeholder="Teléfono" />
+                <label asp-for="PhoneNumber">Teléfono</label>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+
+
+
+
+
+
+
+     
+
+         @*    <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Contraseña" />
+                <label asp-for="Password">Contraseña</label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div> *@
+
+           @*  <div class="form-floating mb-3">
+                <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="Confirmar Contraseña" />
+                <label asp-for="ConfirmPassword">Confirmar Contraseña</label>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div> *@
+
+
+            <!--Autorización-->
+          @*   @if (User.IsInRole(CNT.Administrador))
+            {
+                <!--Selector de Roles-->
+                <div class="form-group row">
+                    <div class="col-6"><h4>Seleccionar Rol de Usuario</h4></div>
+                    <div class="col-5">
+                        <input type="radio" name="radUsuarioRole" value="@CNT.Administrador" /> @CNT.Administrador
+                        <input type="radio" name="radUsuarioRole" value="@CNT.Secretaria" /> @CNT.Secretaria
+                        <input type="radio" name="radUsuarioRole" value="@CNT.Cajero" checked /> @CNT.Cajero
+                    </div>
+                </div>
+            } *@
+
+            <div class="form-group-row">
+                <div class="col-8">
+                    <partial name="_VistaEditarVolver" />
+                </div>
+            </div>
+
+            <br />
+
+        </div>
+
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RegistroCasino.DataAccess.Data.Repository.IRepository;
+using RegistroCasino.Models;
 using System.Security.Claims;
 
 namespace RegistroCasino.Areas.Admin.Controllers
@@ -28,27 +30,54 @@ namespace RegistroCasino.Areas.Admin.Controllers
             return View(_contenedorTrabajo.Cajero.GetAll(u => u.Id != usuarioActual.Value));
         }
 
-        //[HttpGet]
-        //public IActionResult Bloquear(string id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    _contenedorTrabajo.Cajero.BloquearCajero(id);
-        //    return RedirectToAction(nameof(Index));
-        //}
 
-        //[HttpGet]
-        //public IActionResult Desbloquear(string id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    _contenedorTrabajo.Cajero.DesloquearCajero(id);
-        //    return RedirectToAction(nameof(Index));
-        //}
+        [HttpGet]
+        public IActionResult Edit(string id)
+        {
+            CajeroUser cajero = new CajeroUser();
+            cajero = _contenedorTrabajo.Cajero.GetString(id);
+            if (cajero == null)
+            {
+                return NotFound();
+            }
+
+            return View(cajero);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(CajeroUser cajero)
+        {
+            if (ModelState.IsValid)
+            {
+                //Logica para actualizar en BD
+                _contenedorTrabajo.Cajero.Update(cajero);
+
+                try
+                {
+                    _contenedorTrabajo.Save();
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+
+                    if (ex.InnerException != null &&
+                      ex.InnerException != null &&
+                      ex.InnerException.Message.Contains("IX_Cajeros_DNI"))
+                    {
+                        ModelState.AddModelError(string.Empty, "El DNI ingresado ya se encuentra registrado.");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Contacte con el administrador >> Error: " + ex.Message);
+                    }
+                }
+
+
+            }
+
+            return View(cajero);
+        }
 
 
 

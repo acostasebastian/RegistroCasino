@@ -17,13 +17,13 @@ namespace RegistroCasino.Areas.Identity.Pages.Account
 {
     public class LoginWith2faModel : PageModel
     {
-        private readonly SignInManager<Cajeros> _signInManager;
-        private readonly UserManager<Cajeros> _userManager;
+        private readonly SignInManager<CajeroUser> _signInManager;
+        private readonly UserManager<CajeroUser> _userManager;
         private readonly ILogger<LoginWith2faModel> _logger;
 
         public LoginWith2faModel(
-            SignInManager<Cajeros> signInManager,
-            UserManager<Cajeros> userManager,
+            SignInManager<CajeroUser> signInManager,
+            UserManager<CajeroUser> userManager,
             ILogger<LoginWith2faModel> logger)
         {
             _signInManager = signInManager;
